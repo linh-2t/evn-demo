@@ -1,299 +1,257 @@
-Welcome to your new TanStack app! 
+# 🏢⚡ EVN AI Document Processing Demo
 
-# Getting Started
+Ứng dụng demo thông minh cho **EVNNPC** (Tổng công ty Điện lực Miền Bắc) - Hệ thống xử lý tài liệu tự động sử dụng AI, OCR và đối soát dữ liệu PMIS.
 
-To run this application:
+## ✨ Tính năng chính
+
+- 🤖 **AI OCR**: Trích xuất dữ liệu thông minh từ tài liệu PDF, Word, Excel
+- 🔍 **PMIS Integration**: Đối soát tự động với cơ sở dữ liệu PMIS
+- 📊 **Data Validation**: Kiểm tra và xác thực dữ liệu với gợi ý sửa lỗi
+- 🗃️ **Binary Decoding**: Giải mã và xử lý dữ liệu từ assets database
+- 📈 **Real-time Processing**: Xử lý file đồng thời với progress tracking
+- 🎨 **Modern UI**: Giao diện hiện đại với shadcn/ui components
+
+## 🚀 Getting Started
+
+### Yêu cầu hệ thống
+- Node.js 18+ hoặc Bun
+- Modern browser với ES2020+ support
+
+### Cài đặt và chạy
 
 ```bash
+# Clone repository
+git clone https://github.com/linh-2t/evn-demo.git
+cd evn-demo
+
+# Cài đặt dependencies
 bun install
+
+# Chạy development server
 bun --bun run start
 ```
 
-# Building For Production
+Mở [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
 
-To build this application for production:
+### Build cho Production
 
 ```bash
 bun --bun run build
 ```
 
-## Testing
-
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+### Testing
 
 ```bash
 bun --bun run test
 ```
 
-## Styling
+## 🏗️ Tech Stack
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+- **Framework**: React 18 + TypeScript
+- **Routing**: TanStack Router (file-based)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Build Tool**: Vite
+- **Package Manager**: Bun
+- **Testing**: Vitest
 
+## 📁 Cấu trúc dự án
 
+```
+src/
+├── components/
+│   ├── ui/           # shadcn/ui components
+│   └── demo/         # EVN demo components
+├── hooks/            # Custom React hooks
+├── lib/              # Utilities và helpers
+├── types/            # TypeScript type definitions
+├── assets/           # Static assets (logos, images)
+└── routes/           # TanStack Router routes
+```
 
-## Shadcn
+## 🔧 Development
 
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
+### Thêm shadcn/ui components
 
 ```bash
 pnpx shadcn@latest add button
 ```
 
+## 🎯 Demo Scenarios
 
+Ứng dụng mô phỏng các tình huống thực tế trong xử lý tài liệu điện lực:
 
-## Routing
-This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
+### 📤 Upload Mode
+- Upload files từ máy tính (PDF, Word, Excel)
+- Xử lý OCR và trích xuất dữ liệu thiết bị
+- Đối soát với database PMIS
+- Hiển thị kết quả validation và gợi ý sửa lỗi
 
-### Adding A Route
+### 🗄️ Database Mode  
+- Chọn assets từ encoded database
+- Giải mã binary files tự động
+- Xử lý đồng thời nhiều documents
+- So sánh và chỉnh sửa dữ liệu trực tiếp
 
-To add a new route to your application just add another a new file in the `./src/routes` directory.
+### 📊 Data Processing Features
+- **Smart OCR**: Confidence scoring và error detection
+- **PMIS Matching**: Similarity scoring với multiple matches
+- **Data Validation**: Real-time validation với suggestions
+- **Progress Tracking**: Live processing status với detailed stages
 
-TanStack will automatically generate the content of the route file for you.
+## 🎨 UI Components
 
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
+### Custom Components
 ```tsx
-import { Link } from "@tanstack/react-router";
+// File processing với real-time status
+<FilesProcessing files={files} onFileClick={handleClick} />
+
+// PMIS matching với multiple results
+<PmisMatch result={processingResult} />
+
+// Interactive comparison table
+<ComparisonTable data={extractedData} onEdit={handleEdit} />
+
+// Database tables với equal heights
+<PmisDatabaseTable database={pmisData} />
+<EncodedAssetsTable assets={encodedAssets} />
 ```
 
-Then anywhere in your JSX you can use it like so:
+## 📋 Key Features Detail
 
-```tsx
-<Link to="/about">About</Link>
-```
+### 🔍 OCR Processing
+- **Multi-format support**: PDF, Word, Excel documents
+- **Confidence scoring**: 0-100% accuracy measurement
+- **Error detection**: Automatic quality assessment
+- **Text extraction**: Smart field recognition
 
-This will create a link that will navigate to the `/about` route.
+### 🏢 PMIS Integration  
+- **Database matching**: Automatic similarity scoring
+- **Multiple candidates**: Shows alternative matches
+- **Field mapping**: Configurable column mapping
+- **Data validation**: Real-time error checking
 
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+### 🎛️ Interactive Interface
+- **Real-time progress**: Live processing status
+- **Edit capabilities**: Inline data editing
+- **Status indicators**: Clear visual feedback
+- **Responsive design**: Mobile-friendly layout
 
-### Using A Layout
+## 🗂️ Test Data
 
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you use the `<Outlet />` component.
+Demo sử dụng dữ liệu mẫu realistic:
 
-Here is an example layout that includes a header:
+### Assets Database (12 items)
+- Máy biến áp các loại: 160kVA → 1000kVA
+- Tủ điều khiển, tủ phân phối
+- Đường dây trung thế/hạ thế  
+- Cáp ngầm, phụ kiện cách điện
 
-```tsx
-import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+### PMIS Database (15 records)
+- Thông tin thiết bị điện hoàn chỉnh
+- Địa điểm đa dạng: An Tảo, Bình Thuận, Tân Phú...
+- Nhà sản xuất: Siemens, ABB, Schneider, Hyundai...
+- Thông số kỹ thuật realistic
 
-import { Link } from "@tanstack/react-router";
+### Processing Scenarios
+- **Perfect match** (98-100%): Dữ liệu chính xác hoàn toàn
+- **High match** (85-94%): Minor warnings cần xem xét
+- **Medium match** (70-84%): Validation issues cần sửa
+- **Poor match** (30-49%): OCR quality thấp
+- **Very poor match** (0-29%): Tài liệu không đọc được
 
-export const Route = createRootRoute({
-  component: () => (
-    <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
-      <Outlet />
-      <TanStackRouterDevtools />
-    </>
-  ),
-})
-```
+## 🚀 Deployment
 
-The `<TanStackRouterDevtools />` component is not required so you can remove it if you don't want it in your layout.
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-const peopleRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/people",
-  loader: async () => {
-    const response = await fetch("https://swapi.dev/api/people");
-    return response.json() as Promise<{
-      results: {
-        name: string;
-      }[];
-    }>;
-  },
-  component: () => {
-    const data = peopleRoute.useLoaderData();
-    return (
-      <ul>
-        {data.results.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    );
-  },
-});
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-### React-Query
-
-React-Query is an excellent addition or alternative to route loading and integrating it into you application is a breeze.
-
-First add your dependencies:
-
+### Build tối ưu
 ```bash
-bun install @tanstack/react-query @tanstack/react-query-devtools
+# Build production với optimizations
+bun run build
+
+# Preview build locally  
+bun run preview
 ```
 
-Next we'll need to create a query client and provider. We recommend putting those in `main.tsx`.
-
-```tsx
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-// ...
-
-const queryClient = new QueryClient();
-
-// ...
-
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  );
-}
-```
-
-You can also add TanStack Query Devtools to the root route (optional).
-
-```tsx
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools />
-    </>
-  ),
-});
-```
-
-Now you can use `useQuery` to fetch your data.
-
-```tsx
-import { useQuery } from "@tanstack/react-query";
-
-import "./App.css";
-
-function App() {
-  const { data } = useQuery({
-    queryKey: ["people"],
-    queryFn: () =>
-      fetch("https://swapi.dev/api/people")
-        .then((res) => res.json())
-        .then((data) => data.results as { name: string }[]),
-    initialData: [],
-  });
-
-  return (
-    <div>
-      <ul>
-        {data.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default App;
-```
-
-You can find out everything you need to know on how to use React-Query in the [React-Query documentation](https://tanstack.com/query/latest/docs/framework/react/overview).
-
-## State Management
-
-Another common requirement for React applications is state management. There are many options for state management in React. TanStack Store provides a great starting point for your project.
-
-First you need to add TanStack Store as a dependency:
-
+### Environment Variables
 ```bash
-bun install @tanstack/store
+# .env.local
+VITE_APP_TITLE="EVN AI Document Processing"
+VITE_API_BASE_URL="https://api.evn.vn"
 ```
 
-Now let's create a simple counter in the `src/App.tsx` file as a demonstration.
+### Static Hosting
+Deploy trên các platform:
+- **Vercel**: Automatic deployment từ GitHub
+- **Netlify**: Drag-and-drop hoặc Git integration  
+- **GitHub Pages**: Static hosting miễn phí
+- **AWS S3 + CloudFront**: Enterprise deployment
 
+## 📖 Documentation
+
+### API Reference
+- **File Processing**: `POST /api/process-file`
+- **PMIS Query**: `GET /api/pmis/search`
+- **Asset Decoding**: `POST /api/decode-asset`
+
+### Components API
 ```tsx
-import { useStore } from "@tanstack/react-store";
-import { Store } from "@tanstack/store";
-import "./App.css";
+// Main demo component
+import { EvnDemo } from '@/components/demo/evn-demo'
 
-const countStore = new Store(0);
-
-function App() {
-  const count = useStore(countStore);
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-    </div>
-  );
-}
-
-export default App;
+// Individual components
+import { FilesProcessing } from '@/components/demo/files-processing'
+import { PmisMatch } from '@/components/demo/pmis-match'
+import { ComparisonTable } from '@/components/demo/comparison-table'
 ```
 
-One of the many nice features of TanStack Store is the ability to derive state from other state. That derived state will update when the base state updates.
+## 🤝 Contributing
 
-Let's check this out by doubling the count using derived state.
+### Development Guidelines
+1. **Code Style**: ESLint + Prettier configuration
+2. **Commit Convention**: Conventional Commits
+3. **TypeScript**: Strict mode enabled
+4. **Testing**: Component tests với Vitest
 
-```tsx
-import { useStore } from "@tanstack/react-store";
-import { Store, Derived } from "@tanstack/store";
-import "./App.css";
+### Contribution Steps
+```bash
+# Fork repository
+git clone https://github.com/your-username/evn-demo.git
 
-const countStore = new Store(0);
+# Create feature branch  
+git checkout -b feature/your-feature-name
 
-const doubledStore = new Derived({
-  fn: () => countStore.state * 2,
-  deps: [countStore],
-});
-doubledStore.mount();
+# Make changes và test
+bun run test
 
-function App() {
-  const count = useStore(countStore);
-  const doubledCount = useStore(doubledStore);
+# Commit với conventional format
+git commit -m "feat: add new OCR processing feature"
 
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-      <div>Doubled - {doubledCount}</div>
-    </div>
-  );
-}
-
-export default App;
+# Push và create PR
+git push origin feature/your-feature-name
 ```
 
-We use the `Derived` class to create a new store that is derived from another store. The `Derived` class has a `mount` method that will start the derived store updating.
+## 📞 Support
 
-Once we've created the derived store we can use it in the `App` component just like we would any other store using the `useStore` hook.
+### Issues & Bugs
+- **GitHub Issues**: [Report bugs](https://github.com/linh-2t/evn-demo/issues)
+- **Feature Requests**: [Suggest features](https://github.com/linh-2t/evn-demo/discussions)
 
-You can find out everything you need to know on how to use TanStack Store in the [TanStack Store documentation](https://tanstack.com/store/latest).
+### Documentation
+- **TanStack Router**: [Documentation](https://tanstack.com/router)
+- **shadcn/ui**: [Component Library](https://ui.shadcn.com)
+- **Tailwind CSS**: [Utility Classes](https://tailwindcss.com)
 
-# Demo files
+## 📄 License
 
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# Learn More
+## 🏢 About EVNNPC
 
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+**Tổng công ty Điện lực Miền Bắc (EVNNPC)** là một trong những đơn vị thành viên chủ chốt của Tập đoàn Điện lực Việt Nam (EVN), chuyên phân phối và bán lẻ điện tại khu vực phía Bắc Việt Nam.
+
+### Mission
+Cung cấp điện năng an toàn, ổn định và chất lượng cao cho khách hàng, đồng thời ứng dụng công nghệ hiện đại để nâng cao hiệu quả quản lý và vận hành hệ thống điện.
+
+---
+
+**Built with ❤️ for EVNNPC** • Powered by modern web technologies
+
+
