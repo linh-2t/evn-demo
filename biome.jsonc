@@ -20,7 +20,8 @@
       },
       "nursery": {
         "noShadow": "off",
-        "useAnchorHref": "off"
+        "useAnchorHref": "off",
+        "useConsistentTypeDefinitions": "off"
       },
       "style": {
         "useBlockStatements": "off",
@@ -35,7 +36,8 @@
       },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noDocumentCookie": "off"
+        "noDocumentCookie": "off",
+        "noUnknownAtRules": "off"
       }
     }
   }
