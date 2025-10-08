@@ -1,0 +1,11 @@
+EQUIPMENT_CODE,EQUIPMENT_NAME,CAPACITY_KVA,LOCATION_NAME,MANUFACTURER_NAME,INSTALL_DATE
+TBA_001,Máy biến áp trung thế 630kVA,630,Trạm biến áp Hoàn Kiếm,Siemens AG,12/05/2019
+TBA_002,Distribution Transformer 400kVA,400,Trạm biến áp Hai Bà Trưng,ABB Group,28/08/2020
+TBA_003,MBA 22-0.4kV 250kVA,250,Trạm biến áp Đống Đa,Schneider Electric,15/03/2021
+TBA_004,Power Transformer 800kVA,800,Trạm biến áp Ba Đình,Toshiba Corporation,07/11/2021
+TBA_005,MBA hạ áp 500kVA,500,Trạm biến áp Cầu Giấy,Siemens AG,23/06/2022
+TBA_006,Transformer 315kVA 22/0.4kV,315,Trạm biến áp Thanh Xuân,ABB Group,14/09/2022
+TBA_007,Máy biến áp phân phối 1000kVA,1000,Trạm biến áp Long Biên,Schneider Electric,09/02/2023
+TBA_008,MBA 160kVA Distribution,160,Trạm biến áp Tây Hồ,Toshiba Corporation,26/05/2023
+TBA_009,Power Transformer 750kVA,750,Trạm biến áp Nam Từ Liêm,Siemens AG,18/08/2023
+TBA_010,MBA trung thế 400kVA,400,Trạm biến áp Bắc Từ Liêm,ABB Group,03/12/2023
